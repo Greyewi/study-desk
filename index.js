@@ -1,41 +1,41 @@
 const students = [
-  {id: 1, name: 'Камышев Леонид', grade: 8},
-  {id: 2, name: 'Ланграф Семён', grade: 8},
-  {id: 3, name: 'Чери Игорь ', grade: 8},
-  {id: 4, name: 'Тихон Снитко', grade: 8},
-  {id: 5, name: 'Пустогачев Амат', grade: 8},
-  {id: 6, name: 'Москаленко Сергей', grade: 8},
-  {id: 7, name: 'Махонин Савелий', grade: 8}
+  {id: 1, name: 'Камышев Леонид', grade: 8, photo: './img/student_1.JPG'},
+  {id: 2, name: 'Ланграф Семён', grade: 8, photo: './img/student_2.JPG'},
+  {id: 3, name: 'Чери Игорь ', grade: 8, photo: './img/student_3.JPG'},
+  {id: 4, name: 'Тихон Снитко', grade: 8, photo: './img/student_4.JPG'},
+  {id: 5, name: 'Пустогачев Амат', grade: 8, photo: './img/student_5.JPG'},
+  {id: 6, name: 'Москаленко Сергей', grade: 8, photo: './img/student_6.JPG'},
+  {id: 7, name: 'Махонин Савелий', grade: 8, photo: './img/student_7.JPG'}
 ]
 
 const subjects = [
-  {id: 1, name: 'Алгебра'},
-  {id: 2, name: 'Геометрия'},
-  {id: 3, name: 'Русский язык'},
-  {id: 4, name: 'Литератрура'},
-  {id: 5, name: 'Английский'},
-  {id: 6, name: 'История'},
-  {id: 7, name: 'Обществознание'},
-  {id: 8, name: 'Физика'},
-  {id: 9, name: 'ИЗО'},
-  {id: 10, name: 'Физкультура'},
-  {id: 11, name: 'Химия'},
-  {id: 12, name: 'География'},
-  {id: 13, name: 'Биология'},
-  {id: 14, name: 'ОБЖ'},
-  {id: 15, name: 'География Чукотки'},
+  {id: 1, name: 'Алгебра', code: 'math'},
+  {id: 2, name: 'Геометрия', code: 'geometry'},
+  {id: 3, name: 'Русский язык', code: 'russian'},
+  {id: 4, name: 'Литератрура', code: 'literature'},
+  {id: 5, name: 'Английский', code: 'english'},
+  {id: 6, name: 'История', code: 'history'},
+  {id: 7, name: 'Обществознание', code: 'social_studies'},
+  {id: 8, name: 'Физика', code: 'phisics'},
+  {id: 9, name: 'ИЗО', code: 'art'},
+  {id: 10, name: 'Физкультура', code: 'physical_culture'},
+  {id: 11, name: 'Химия', code: 'chemistry'},
+  {id: 12, name: 'География', code: 'geography'},
+  {id: 13, name: 'Биология', code: 'biology'},
+  {id: 14, name: 'ОБЖ', code: 'safe_science'},
+  {id: 15, name: 'География Чукотки', code: 'chukotka'},
 ]
 
-const results = [
-  {student_id: 1, subject_id: 1, mark: 5},
-  {student_id: 1, subject_id: 2, mark: 4},
-  {student_id: 1, subject_id: 3, mark: 4},
-  {student_id: 1, subject_id: 4, mark: 2},
-  {student_id: 2, subject_id: 1, mark: 2},
-  {student_id: 3, subject_id: 1, mark: 3},
-  {student_id: 3, subject_id: 4, mark: 4}
-  
-  
+
+const results = [ // отчет недель будет идти с начала четверти
+  {student_id: 1, subject_id: 1, week: 1, mark: 5},
+  {student_id: 1, subject_id: 1, week: 3, mark: 5},
+  {student_id: 1, subject_id: 2, week: 5, mark: 4},
+  {student_id: 1, subject_id: 3, week: 2, mark: 4},
+  {student_id: 1, subject_id: 4, week: 3, mark: 2},
+  {student_id: 2, subject_id: 1, week: 4, mark: 2},
+  {student_id: 3, subject_id: 1, week: 5, mark: 3},
+  {student_id: 3, subject_id: 4, week: 1, mark: 4}
 ]
 
 const sumBy = (student_id, subject_id) => {
@@ -77,16 +77,10 @@ console.log(leader)
 
 const renderStudents = () => {
   const table = document.createElement('table')
-  const thead = document.createElement('thead')
+  const thead = document.querySelector('thead')
+
   const tableList = document.createElement('tr')
   const subject_list = document.createElement('th')
-  const student_one = document.createElement('th')
-  const student_two = document.createElement('th')
-  const student_three = document.createElement('th')
-  const student_four = document.createElement('th')
-  const student_five = document.createElement('th')
-  const student_six = document.createElement('th')
-  const student_seven = document.createElement('th')
 
   const tablePhotos = document.createElement('tr')
   const firstTD = document.createElement('td')
@@ -98,28 +92,11 @@ const renderStudents = () => {
   const player_6 = document.createElement('td')
   const player_7 = document.createElement('td')
 
-  const tbody = document.createElement('tbody')
+  const tbody = document.querySelector('tbody')
   const tbadges = document.createElement('tr')
   const TDbages = document.createElement('td')
   const chemistryBadge = document.createElement('td')
 
-  const math = document.createElement('tr')
-  const math1 = document.createElement('td')
-  const math2 = document.createElement('td')
-  const geometry = document.createElement('tr')
-  const russian = document.createElement('tr')
-  const literature = document.createElement('tr')
-  const english = document.createElement('tr')
-  const history = document.createElement('tr')
-  const social_studies = document.createElement('tr')
-  const phisics = document.createElement('tr')
-  const art = document.createElement('tr')
-  const physical_culture = document.createElement('tr')
-  const geography = document.createElement('tr')
-  const biology = document.createElement('tr')
-  const safe_science = document.createElement('tr')
-  const geography_Chukotka = document.createElement('tr')
-  const chemistry = document.createElement('tr')
 
   const week_achivements = document.createElement('tr')
   const student1_achivements = document.createElement('td')
@@ -135,20 +112,10 @@ const renderStudents = () => {
   const winner_photo = document.createElement('div')
 
 
-
-  table.classList.add('table')
-  thead.classList.add('thead')
   tableList.classList.add('table_list')
-  subject_list.classList.add('table_list')
-  student_one.classList.add('name', 'student_1')
-  student_two.classList.add('name',  'student_2')
-  student_three.classList.add('name', 'student_3')
-  student_four.classList.add('name', 'student_4')
-  student_five.classList.add('name',  'student_5')
-  student_six.classList.add('name', 'student_6')
-  student_seven.classList.add('name', 'student_7')
 
-  tbody.classList.add('tbody')
+  subject_list.classList.add('table_list')
+
   tbadges.classList.add('tbages')
   chemistryBadge.classList.add('chemistry_badge')
   TDbages.classList.add('TDbages')
@@ -160,24 +127,6 @@ const renderStudents = () => {
   player_5.classList.add('player_img5')
   player_6.classList.add('player_img6')
   player_7.classList.add('player_img7')
-
-  math.classList.add('math')
-  math1.classList.add('math1')
-  math2.classList.add('math2')
-  geometry.classList.add('geometry')
-  russian.classList.add('russian')
-  literature.classList.add('literature')
-  english.classList.add('english')
-  phisics.classList.add('phisics')
-  history.classList.add('history')
-  social_studies.classList.add('social_studies')
-  art.classList.add('art')
-  physical_culture.classList.add('physical_culture')
-  geography.classList.add('geography')
-  biology.classList.add('biology')
-  safe_science.classList.add('safe_science')
-  geography_Chukotka.classList.add('chukotka')
-  chemistry.classList.add('chemistry')
 
   week_achivements.classList.add('weekAchivements')
   student1_achivements.classList.add('studen1_achivement')
@@ -193,35 +142,8 @@ const renderStudents = () => {
   winner_photo.classList.add('winner_photo')
 
   subject_list.textContent = "Ученики"
-  student_one.textContent = "Камышев Леонид"
-  student_two.textContent = "Ланграф Семен"
-  student_three.textContent = "Игорь Чери"
-  student_four.textContent = "Снитко Тихон"
-  student_five.textContent = "Пустогачев Амат"
-  student_six.textContent = "Москаленко Сергей"
-  student_seven.textContent = "Махонин Савелий"
+
   firstTD.textContent = "Предметы"
-
-
-
-  math.textContent = subjects[0].name
-  geometry.textContent = subjects[1].name
-  russian.textContent = subjects[2].name
-  literature.textContent = subjects[3].name
-  english.textContent = subjects[4].name
-  history.textContent = subjects[5].name
-  social_studies.textContent = subjects[6].name
-  phisics.textContent = subjects[7].name
-  art.textContent = subjects[8].name
-  physical_culture.textContent = subjects[9].name
-  chemistry.textContent = subjects[10].name
-  geography.textContent = subjects[11].name
-  biology.textContent = subjects[12].name
-  social_studies.textContent = subjects[13].name
-  geography_Chukotka.textContent = subjects[14].name
-
-  math1.textContent = results[0].mark
-  math2.textContent = results[4].mark
 
   week_achivements.textContent = "Оценки за неделю"
 
@@ -231,16 +153,52 @@ const renderStudents = () => {
   total_score.textContent = "Итого"
   winner.textContent = "победитель недели"
   
-  document.getElementById('body')
+  const body = document.getElementById('body')
 
-  table.append(thead, tablePhotos, tbadges, math, geometry, russian, literature, english, history, social_studies, phisics, art, physical_culture, chemistry, geography, biology, safe_science, geography_Chukotka,week_achivements,total_score)
+  students.forEach(student => {
+    const th = document.createElement('th')
+    th.classList.add('name', 'student_' + student.id)
+    th.textContent = student.name
+    tableList.append(th)
+  })
+
+  subjects.forEach(subject => {
+    const tr = document.createElement('tr')
+    tr.classList.add(subject.code)
+    tr.textContent = subject.name
+
+
+    students.forEach(student => {
+      const td = document.createElement('td')
+
+      results.forEach(result => {
+        if(result.subject_id === subject.id && result.student_id === student.id){
+          const span = document.createElement('span')
+          span.textContent = result.mark
+          td.append(span)
+        }
+      })
+
+      tr.append(td)
+    })
+
+
+    // math1.textContent = results[0].mark
+    // math2.textContent = results[4].mark
+
+    tbody.append(tr)
+  })
+
+  tableList.append(subject_list)
+  thead.append(tableList, tablePhotos)
+  tbody.append(tbadges, week_achivements, total_score)
   thead.appendChild(tableList)
-  tableList.append(subject_list,student_one, student_two, student_three, student_four, student_five, student_six, student_seven)
-  tablePhotos.append( firstTD, player_1, player_2,player_3, player_4, player_5, player_6, player_7)
+
+  tablePhotos.append(firstTD, player_1, player_2,player_3, player_4, player_5, player_6, player_7)
   tbadges.append(TDbages,chemistryBadge)
-  math.append(math1, math2)
+
   week_achivements.append(student1_achivements,student2_achivements,student3_achivements)
-  document.getElementById('body').append(table, winner, winner_photo);
+  body.append(table, winner, winner_photo);
 }
 
 renderStudents()
