@@ -1,0 +1,93 @@
+.table {
+    border-spacing: 3em 1em;
+    padding: 0 2em 1em 0;
+    border: 1px solid orange;
+  }
+  
+  .table_list {
+      padding: 20px;
+  }
+  .player_img1 {
+      background-image: url('./img/student_1.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      background-size: cover;
+  }
+  
+  .player_img2 {
+      background-image: url('./img/student_2.JPEG');
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      background-size: cover;
+  }
+  
+  .player_img3 {
+      background-image: url('./img/student_3.JPG');
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      background-size: cover;
+  }
+  
+  .player_img4 {
+      background-image: url('./img/student_4.PNG');
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      background-size: cover;
+  }
+  
+  .player_img6 {
+      background-image: url('./img/student_6.JPG');
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 115px;
+      height: 100px;
+      padding: 20px;
+      background-size: cover;
+  }
+  
+  .player_img7 {
+      background-image: url('./img/student_7.JPEG');
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 110px;
+      height: 100px;
+      padding: 20px;
+      background-size: cover;
+  }
+  
+  .chemistry_badge {
+      background-image: url('./img/chemistry.png');
+      background-repeat: no-repeat;
+      background-position: left;
+      width: 25px;
+      height: 25px;
+      padding: 5px;
+      background-size: contain;
+  }
+  
+  .mathematics_badge {
+      background-image: url('./img/math.png');
+      background-repeat: no-repeat;
+      background-position: left;
+      width: 25px;
+      height: 25px;
+      padding: 5px;
+      background-size: contain;
+  }
+  
+  .table_badges {
+      width: 20px;
+      height: 20px;
+  }
