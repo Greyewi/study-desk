@@ -30,7 +30,12 @@ const results = [
   {student_id: 1, subject_id: 1, mark: 5},
   {student_id: 1, subject_id: 2, mark: 4},
   {student_id: 1, subject_id: 3, mark: 4},
-  {student_id: 1, subject_id: 4, mark: 2}
+  {student_id: 1, subject_id: 4, mark: 2},
+  {student_id: 2, subject_id: 1, mark: 2},
+  {student_id: 3, subject_id: 1, mark: 3},
+  {student_id: 3, subject_id: 4, mark: 4}
+  
+  
 ]
 
 const sumBy = (student_id, subject_id) => {
@@ -64,6 +69,11 @@ students.forEach(student => {
    
   })
 })
+
+const leader = Math.max(approximateMarksByStudents(1), approximateMarksByStudents(2), approximateMarksByStudents(3))
+console.log(leader)
+
+
 
 const renderStudents = () => {
   const table = document.createElement('table')
@@ -211,14 +221,16 @@ const renderStudents = () => {
   geography_Chukotka.textContent = subjects[14].name
 
   math1.textContent = results[0].mark
-  math2.textContent = results[2].mark
+  math2.textContent = results[4].mark
 
   week_achivements.textContent = "Оценки за неделю"
 
   student1_achivements.textContent = approximateMarksByStudents(1)
+  student2_achivements.textContent = approximateMarksByStudents(2)
+  student3_achivements.textContent = approximateMarksByStudents(3)
   total_score.textContent = "Итого"
   winner.textContent = "победитель недели"
-
+  
   document.getElementById('body')
 
   table.append(thead, tablePhotos, tbadges, math, geometry, russian, literature, english, history, social_studies, phisics, art, physical_culture, chemistry, geography, biology, safe_science, geography_Chukotka,week_achivements,total_score)
@@ -227,7 +239,7 @@ const renderStudents = () => {
   tablePhotos.append( firstTD, player_1, player_2,player_3, player_4, player_5, player_6, player_7)
   tbadges.append(TDbages,chemistryBadge)
   math.append(math1, math2)
-  week_achivements.append(student1_achivements)
+  week_achivements.append(student1_achivements,student2_achivements,student3_achivements)
   document.getElementById('body').append(table, winner, winner_photo);
 }
 
