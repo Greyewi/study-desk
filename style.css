@@ -91,3 +91,14 @@
       width: 20px;
       height: 20px;
   }
+
+  .winner {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+  }

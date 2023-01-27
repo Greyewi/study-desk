@@ -56,6 +56,8 @@ const approximateMarksByStudents = (student_id) => {
 
 console.log(approximateMarksByStudents(1))
 
+
+
 students.forEach(student => {
   const getStudentMarks = sumByStudent(student.id)
   subjects.forEach(subject => {
@@ -109,6 +111,20 @@ const renderStudents = () => {
   const geography_Chukotka = document.createElement('tr')
   const chemistry = document.createElement('tr')
 
+  const week_achivements = document.createElement('tr')
+  const student1_achivements = document.createElement('td')
+  const student2_achivements = document.createElement('td')
+  const student3_achivements = document.createElement('td')
+  const student4_achivements = document.createElement('td')
+  const student5_achivements = document.createElement('td')
+  const student6_achivements = document.createElement('td')
+  const student7_achivements = document.createElement('td')
+
+  const total_score = document.createElement('tr')
+  const winner = document.createElement('div')
+  const winner_photo = document.createElement('div')
+
+
 
   table.classList.add('table')
   thead.classList.add('thead')
@@ -153,6 +169,18 @@ const renderStudents = () => {
   geography_Chukotka.classList.add('chukotka')
   chemistry.classList.add('chemistry')
 
+  week_achivements.classList.add('weekAchivements')
+  student1_achivements.classList.add('studen1_achivement')
+  student2_achivements.classList.add('studen2_achivement')
+  student3_achivements.classList.add('studen3_achivement')
+  student4_achivements.classList.add('studen4_achivement')
+  student5_achivements.classList.add('studen5_achivement')
+  student6_achivements.classList.add('studen6_achivement')
+  student7_achivements.classList.add('studen7_achivement')
+
+  total_score.classList.add('total_score')
+  winner.classList.add('winner')
+  winner_photo.classList.add('winner_photo')
 
   subject_list.textContent = "Ученики"
   student_one.textContent = "Камышев Леонид"
@@ -185,17 +213,22 @@ const renderStudents = () => {
   math1.textContent = results[0].mark
   math2.textContent = results[2].mark
 
+  week_achivements.textContent = "Оценки за неделю"
 
+  student1_achivements.textContent = approximateMarksByStudents(1)
+  total_score.textContent = "Итого"
+  winner.textContent = "победитель недели"
 
   document.getElementById('body')
 
-  table.append(thead, tablePhotos, tbadges, math, geometry, russian, literature, english, history, social_studies, phisics, art, physical_culture, chemistry, geography, biology, safe_science, geography_Chukotka)
+  table.append(thead, tablePhotos, tbadges, math, geometry, russian, literature, english, history, social_studies, phisics, art, physical_culture, chemistry, geography, biology, safe_science, geography_Chukotka,week_achivements,total_score)
   thead.appendChild(tableList)
   tableList.append(subject_list,student_one, student_two, student_three, student_four, student_five, student_six, student_seven)
   tablePhotos.append( firstTD, player_1, player_2,player_3, player_4, player_5, player_6, player_7)
   tbadges.append(TDbages,chemistryBadge)
   math.append(math1, math2)
-  document.getElementById('body').appendChild(table);
+  week_achivements.append(student1_achivements)
+  document.getElementById('body').append(table, winner, winner_photo);
 }
 
 renderStudents()
