@@ -1,9 +1,10 @@
 const students = [
+  {id: 0},
   {id: 1, name: 'Камышев Леонид', grade: 8, photo: './img/student_1.JPG'},
   {id: 2, name: 'Ланграф Семён', grade: 8, photo: './img/student_2.JPG'},
   {id: 3, name: 'Чери Игорь ', grade: 8, photo: './img/student_3.JPG'},
   {id: 4, name: 'Тихон Снитко', grade: 8, photo: './img/student_4.JPG'},
-  {id: 5, name: 'Пустогачев Амат', grade: 8, photo: './img/student_5.JPG'},
+  {id: 5, name: 'Пустогачев Амат', grade: 8, photo: './img/chemistry.png'},
   {id: 6, name: 'Москаленко Сергей', grade: 8, photo: './img/student_6.JPG'},
   {id: 7, name: 'Махонин Савелий', grade: 8, photo: './img/student_7.JPG'}
 ]
@@ -12,18 +13,18 @@ const subjects = [
   {id: 1, name: 'Алгебра', code: 'math'},
   {id: 2, name: 'Геометрия', code: 'geometry'},
   {id: 3, name: 'Русский язык', code: 'russian'},
-  {id: 4, name: 'Литератрура', code: 'literature'},
+  {id: 4, name: 'Литература', code: 'literature'},
   {id: 5, name: 'Английский', code: 'english'},
   {id: 6, name: 'История', code: 'history'},
-  {id: 7, name: 'Обществознание', code: 'social_studies'},
+  {id: 7, name: 'Общество', code: 'social_studies'},
   {id: 8, name: 'Физика', code: 'phisics'},
   {id: 9, name: 'ИЗО', code: 'art'},
-  {id: 10, name: 'Физкультура', code: 'physical_culture'},
+  {id: 10, name: 'Физ-ра', code: 'physical_culture'},
   {id: 11, name: 'Химия', code: 'chemistry'},
   {id: 12, name: 'География', code: 'geography'},
   {id: 13, name: 'Биология', code: 'biology'},
   {id: 14, name: 'ОБЖ', code: 'safe_science'},
-  {id: 15, name: 'География Чукотки', code: 'chukotka'},
+  {id: 15, name: 'Гео.Чукотки', code: 'chukotka'},
 ]
 
 
@@ -70,8 +71,7 @@ students.forEach(student => {
   })
 })
 
-const leader = Math.max(approximateMarksByStudents(1), approximateMarksByStudents(2), approximateMarksByStudents(3))
-console.log(leader)
+
 
 
 
@@ -127,6 +127,7 @@ const renderStudents = () => {
   player_5.classList.add('player_img5')
   player_6.classList.add('player_img6')
   player_7.classList.add('player_img7')
+  
 
   week_achivements.classList.add('weekAchivements')
   student1_achivements.classList.add('studen1_achivement')
@@ -141,11 +142,11 @@ const renderStudents = () => {
   winner.classList.add('winner')
   winner_photo.classList.add('winner_photo')
 
-  subject_list.textContent = "Ученики"
+  
 
   firstTD.textContent = "Предметы"
 
-  week_achivements.textContent = "Оценки за неделю"
+  week_achivements.textContent = "Оценки"
 
   student1_achivements.textContent = approximateMarksByStudents(1)
   student2_achivements.textContent = approximateMarksByStudents(2)
@@ -174,7 +175,11 @@ const renderStudents = () => {
       results.forEach(result => {
         if(result.subject_id === subject.id && result.student_id === student.id){
           const span = document.createElement('span')
-          span.textContent = result.mark
+          tr.addEventListener('click', () => {
+            span.textContent = result.mark
+          }
+            
+          )
           td.append(span)
         }
       })
@@ -183,15 +188,12 @@ const renderStudents = () => {
     })
 
 
-    // math1.textContent = results[0].mark
-    // math2.textContent = results[4].mark
-
     tbody.append(tr)
   })
 
   tableList.append(subject_list)
-  thead.append(tableList, tablePhotos)
-  tbody.append(tbadges, week_achivements, total_score)
+  thead.append(tableList, tablePhotos, tbadges)
+  tbody.append(week_achivements, total_score)
   thead.appendChild(tableList)
 
   tablePhotos.append(firstTD, player_1, player_2,player_3, player_4, player_5, player_6, player_7)
